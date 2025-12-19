@@ -1,0 +1,90 @@
+(footprint "SolderJump"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -1.75 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "fa82223b-c2bc-49b9-9184-b42a2639c09a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SolderJump"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f9ac40e8-2555-4d36-bec0-29b100200785")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ef109c80-b104-49f9-8951-3c160fe29ee0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "02504f7d-283d-4298-a6f1-f920a18d8be0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "a6bfb98e-a094-49f2-ae9b-b9af7999993e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -0.75 0)
+		(size 1 1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.5)
+		(chamfer_ratio 0)
+		(chamfer top_right bottom_right)
+		(uuid "2f6ebc09-6f51-4d45-b2f7-834fa3502232")
+	)
+	(pad "2" smd roundrect
+		(at 0.75 0 180)
+		(size 1 1)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.5)
+		(chamfer_ratio 0)
+		(chamfer top_right bottom_right)
+		(uuid "ca91cf09-023a-40c8-b4ba-59837c659d80")
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,155 @@
+(footprint "SideLED"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "afab0252-5484-4853-acb0-fb43df8db7bd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SideLED"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "7c8bd2a4-e31a-457a-8d26-82a7344ef355")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2d00ef08-1631-41aa-8ed9-79d270fb1004")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2a6bd150-e13b-40ca-94d2-4fa61fc9030e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -3.75 -1.875)
+		(end 3.75 -1.875)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "5aea2bb4-80ce-4d59-85fa-fe368e84ff91")
+	)
+	(fp_line
+		(start -3.75 -0.125)
+		(end -3.75 -1.875)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "fa828dbf-2dac-4f9e-bdb9-0f99e9ce0cd8")
+	)
+	(fp_line
+		(start -2.5 2.25)
+		(end -1.75 2.25)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "b531841d-3901-4074-984c-559e5dba7476")
+	)
+	(fp_line
+		(start -2.125 1.875)
+		(end -2.125 2.625)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "269ebf78-ef7d-4f29-9119-9a3628480222")
+	)
+	(fp_line
+		(start 1.75 2.25)
+		(end 2.5 2.25)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "f1a962e8-caca-46a6-9e03-015838d4463e")
+	)
+	(fp_line
+		(start 3.75 -0.125)
+		(end 3.75 -1.875)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "8a5402c5-1fa8-4d1e-a001-6da519ed0f56")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "8083df5c-47bd-41e4-ace8-c885bf637135")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -2 0)
+		(size 2.5 3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.15)
+		(uuid "8dfc4f38-dd56-42ed-8ac1-1653e82d1816")
+	)
+	(pad "2" smd roundrect
+		(at 2 0)
+		(size 2.5 3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.15)
+		(uuid "bbdedf57-9963-4b5b-a7e6-1e04f74cc3aa")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/3dmodels/LUXEON_3014.stp"
+		(offset
+			(xyz 0 0 1.5)
+		)
+		(scale
+			(xyz 2 2 2)
+		)
+		(rotate
+			(xyz -0 -0 -0)
+		)
+	)
+)
