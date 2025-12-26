@@ -215,8 +215,8 @@
 		(uuid "0887dc70-13db-4a51-adbb-1f73d9c0714e")
 	)
 	(fp_rect
-		(start -0.85 -2.5)
-		(end 0.85 2.5)
+		(start -0.85 -2.3)
+		(end 0.85 2.3)
 		(stroke
 			(width 0.1)
 			(type solid)
@@ -239,9 +239,9 @@
 	)
 	(pad "G" thru_hole roundrect
 		(at 0 3.05)
-		(size 5 3.8)
-		(drill oval 1.7 2.9
-			(offset 0 0.4)
+		(size 5 3.5)
+		(drill oval 1.7 2.8
+			(offset 0 0.3)
 		)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
@@ -272,9 +272,9 @@
 	)
 	(pad "V" thru_hole roundrect
 		(at 0 -3.05)
-		(size 5 3.8)
-		(drill oval 1.7 2.9
-			(offset 0 -0.4)
+		(size 5 3.5)
+		(drill oval 1.7 2.8
+			(offset 0 -0.3)
 		)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
