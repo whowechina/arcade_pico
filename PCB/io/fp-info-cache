@@ -1,4 +1,4 @@
-26448172658536715
+26458696541758569
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -105098,6 +105098,20 @@ SOD-323
 2
 2
 io
+M2_Screw
+
+
+0
+0
+0
+io
+M3_Screw
+
+
+0
+0
+0
+io
 RPi_Pico_SMD_No_USB
 Through hole straight pin header, 2x20, 2.54mm pitch, double rows
 Through hole pin header THT 2x20 2.54mm double row
@@ -105112,6 +105126,27 @@ Through hole pin header THT 2x20 2.54mm double row
 45
 45
 io
+RPi_Pico_SMD_Pins_No_SWD
+Through hole straight pin header, 2x20, 2.54mm pitch, double rows
+Through hole pin header THT 2x20 2.54mm double row
+0
+42
+42
+io
+RPi_Pico_SMD_Pins_No_SWD_No_Text
+Through hole straight pin header, 2x20, 2.54mm pitch, double rows
+Through hole pin header THT 2x20 2.54mm double row
+0
+42
+42
+io
+R_Array_Convex_4x0805
+Chip Resistor Network, ROHM MNR14 (see mnr_g.pdf)
+resistor array
+0
+8
+8
+io
 R_Array_Convex_8x0603
 Chip Resistor Network, ROHM MNR14 (see mnr_g.pdf)
 resistor array
@@ -105125,3 +105160,10 @@ SOT TO_SOT_SMD
 0
 3
 3
+io
+SolderJump
+
+
+0
+2
+2
