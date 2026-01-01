@@ -1,5 +1,5 @@
 # Arcade Pico - 街机按钮的替代开关灯座
-[Click here for the English version of this guide.]（README.md）
+[Click here for the English version of this guide](README.md)
 
 <img src="doc/main.jpg" width="90%">
 
