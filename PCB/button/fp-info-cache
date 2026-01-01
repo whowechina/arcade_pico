@@ -1,4 +1,4 @@
-26455228290895343
+26469307793621471
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -105105,6 +105105,13 @@ GoldFinger
 4
 4
 button
+IR908-7C
+
+
+0
+2
+2
+button
 ITR1203
 package for Everlight ITR8307/F43, see https://everlighteurope.com/index.php?controller=attachment&id_attachment=5385
 refective opto couple photo coupler
@@ -105126,12 +105133,54 @@ M2_Screw
 0
 0
 button
+PT908-7C
+
+
+0
+2
+2
+button
+SH1.0_2P_Solder_Combo
+JST SH series connector, SM04B-SRSS-TB (http://www.jst-mfg.com/product/pdf/eng/eSH.pdf), generated with kicad-footprint-generator
+connector JST SH horizontal
+0
+6
+3
+button
+SH1.0_3P_Solder_Combo
+JST SH series connector, SM04B-SRSS-TB (http://www.jst-mfg.com/product/pdf/eng/eSH.pdf), generated with kicad-footprint-generator
+connector JST SH horizontal
+0
+8
+4
+button
+SH1.0_4P_Solder_Combo
+JST SH series connector, SM04B-SRSS-TB (http://www.jst-mfg.com/product/pdf/eng/eSH.pdf), generated with kicad-footprint-generator
+connector JST SH horizontal
+0
+10
+5
+button
 SOT-23-FAT
 SOT, 3 Pin (JEDEC MO-178 inferred 3-pin variant https://www.jedec.org/document_search?search_api_views_fulltext=MO-178), generated with kicad-footprint-generator ipc_gullwing_generator.py
 SOT TO_SOT_SMD
 0
 3
 3
+button
+SW_Kailh_Choc_IR_Combo
+Kailh Choc keyswitch CPG1350 V1 CPG1353 V2 with 1.00u keycap
+Kailh Choc Keyswitch Switch CPG1350 V1 CPG1353 V2 Cutout 1.00u
+0
+8
+6
+button
+SW_Kailh_Choc_V1V2
+Kailh Choc keyswitch CPG1350 V1 CPG1353 V2 with 1.00u keycap
+Kailh Choc Keyswitch Switch CPG1350 V1 CPG1353 V2 Cutout 1.00u
+0
+4
+2
 button
 SideLED
 
@@ -105153,3 +105202,10 @@ WS2812B-4020
 0
 4
 4
+button
+WS2812B-4020_RGBW
+
+
+0
+6
+5

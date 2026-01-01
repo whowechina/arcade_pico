@@ -249,8 +249,8 @@
 		(uuid "a00b7a51-e989-432f-84ad-1aaebc16c545")
 	)
 	(pad "I" thru_hole roundrect
-		(at -2.4 0)
-		(size 3 1.3)
+		(at -1.9 0)
+		(size 2 1.3)
 		(drill 0.4)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
@@ -260,8 +260,8 @@
 		(uuid "a52eb0ce-d831-46e1-8114-3c560695c972")
 	)
 	(pad "O" thru_hole roundrect
-		(at 2.4 0)
-		(size 3 1.3)
+		(at 1.9 0)
+		(size 2 1.3)
 		(drill 0.4)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
