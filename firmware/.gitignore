@@ -1,0 +1,5 @@
+build
+pico-examples
+pico-sdk
+.vscode
+*.uf2
