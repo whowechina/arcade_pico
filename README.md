@@ -7,7 +7,7 @@ It's the successor to my sanwa_opt project. With it, you can use regular low-pro
 
 ## Features
 * Compatible with both old Sanwa (push-click) and new Sanwa (twist-lock), Samducksa, and common Chinese buttons;
-* Supports mechanical switches, optical sensors, and magnetic switches (IO board required);
+* Supports mechanical switches, optical sensors, and magnetic switches (`IO Board` required);
 * Feel switch and actuation switch can be separated;
 * FDM 3D-printing friendly.
 
@@ -53,51 +53,52 @@ If you're interested in buying from me, or for commercial use, please contact me
 
 ## Use Cases
 ### Terminology First
-* **Button Board** - The PCB that contains the switch and LED daughter board. It's the major part of the Arcade Pico project.
-* **IO Board** - The optional PCB that converts Hall effect switch signals to digital signals, and bridges regular LED signals to WS2812B RGB LED data signals. It's also part of the Arcade Pico project.
-* **Main Board** - The original controller board of your arcade system.
+* **`Button Board`** - The PCB that contains the switch and LED daughter board. It's the major part of the Arcade Pico project.
+* **`IO Board`** - The optional PCB that converts Hall effect switch signals to digital signals, and bridges regular LED signals to WS2812B RGB LED data signals. It's also part of the Arcade Pico project.
+* **`Main Board`** - The original controller board of your arcade system.
 
-### Case: Replace the Lamp/Switch Holder without the IO Board
-It's the most common and easy case. The only thing you need to do is wiring the switch and LED signals from your main board to the corresponding connectors on the button board.
+### Case: Replace the Lamp/Switch Holder without the `IO Board`
+It's the most common and easy case. The only thing you need to do is wiring the switch and LED signals from your `Main Board` to the corresponding connectors on the `Button Board`.
 You can use mechanical switches or optical sensors, but you can't use magnetic switches or RGB lights.
 
 #### Wiring:
-* **SW Out** (SH1.0 3P) on Button Board → **Button Input** on Main Board
-* **LED In** (SH1.0 3P) on Button Board ← **Lamp Output** on Main Board
+* **SW Out** (SH1.0 3P) on `Button Board` → **Button Input** on `Main Board`
+* **LED In** (SH1.0 3P) on `Button Board` ← **Lamp Output** on `Main Board`
 
-### Case: Enjoy the Magnetic Switch or the RGB light with the IO Board
-With magnetic switch, you can define your trigger and reset distance. With RGB light, you can define your button light color and effect. IO board is required to drive the magnetic switch and RGB light.
+### Case: Enjoy the Magnetic Switch or the RGB light with the `IO Board`
+With magnetic switch, you can define your trigger and reset distance. With RGB light, you can define your button light color and effect. `IO Board` is required to drive the magnetic switch and RGB light.
 
 #### Wiring:
 * Magnetic switch signals
-  * **SW Out** (SH1.0 3P) on Button Board → **Hall In** (SH1.0 3P) on IO Board
-  * **Out** (XH2.5 2P) on IO Board → **Button Input** on Main Board
+  * **SW Out** (SH1.0 3P) on `Button Board` → **Hall In** (SH1.0 3P) on `IO Board`
+  * **Out** (XH2.5 2P) on `IO Board` → **Button Input** on `Main Board`
 * RGB LED signals
-  * **Lamp Output** on Main Board → **Lamp In** (XH2.5 2P) on IO Board
-  * **LED Out** (SH1.0 3P) on IO Board → **LED In** (SH1.0 3P) on Button Board
-  * **LED Out** (SH1.0 3P) on Button Board → **LED In** (SH1.0 3P) on next Button Board (if any)
-  * **LED Out** (SH1.0 3P) on last Button Board → **LED End** (SH1.0 3P) on IO Board for power backup.
+  * **Lamp Output** on `Main Board` → **Lamp In** (XH2.5 2P) on `IO Board`
+  * **LED Out** (SH1.0 3P) on `IO Board` → **LED In** (SH1.0 3P) on `Button Board`
+  * **LED Out** (SH1.0 3P) on `Button Board` → **LED In** (SH1.0 3P) on next `Button Board` (if any)
+  * **LED Out** (SH1.0 3P) on last `Button Board` → **LED End** (SH1.0 3P) on `IO Board` for power backup.
 
-* You can power the IO Board from the main board's 5V supply via JST 2P, or directly via Type-C port (USB or power adapter).
+* You can power the `IO Board` from the `Main Board`'s 5V supply via JST 2P, or directly via Type-C port (USB or power adapter).
 
-#### When IO board is connected to a host computer via Type-C:
-  * HID is used to exchange button and light signals.
+#### When `IO Board` is connected to a host computer via Type-C:
+  * `IO Board` works as an HID device.  
+    So if you're fine with this extra USB cable, you might be able to skip the wiring between the `IO Board` and the `Main Board`. However, some games require the controller to be a single device, so this won't work in those cases.
   * CLI (command line interface) is on USB CDC (serial).
-* The Type-C port is also for firmware update.
+  * The Type-C port is also for firmware update.
 
 ### Imagined Case: Interfacing with DJDao PhoenixWAN
-This is a theoretical case that probably won't be implemented. If implemented, all that cockamamie wiring between IO board and main board would be eliminated - they'd simply communicate via UART.
+This is a theoretical case that probably won't be implemented. If implemented, all that cockamamie wiring between `IO Board` and `Main Board` would be eliminated - they'd simply communicate via UART.
 
 Let's hope this happens someday.
 
 # How to Build
-## The Button Board
+## The `Button Board`
 ### Common Part
-* The PCB gerber file is "Production/PCB/"arcade_pico_button_*.zip". I always use JLC (https://www.jlcpcb.com) and Jiepei (https://www.jiepei.com), feel free to use your preferred PCB manufacturer.
+* The PCB gerber file is `Production/PCB/"arcade_pico_button_*.zip`. I always use JLC (https://www.jlcpcb.com) and Jiepei (https://www.jiepei.com), feel free to use your preferred PCB manufacturer. They may ask if you need half-hole pads for the `Button Board`, just answer "No", it's costy and not necessary.
 * 2X 3P SH1.0 horizontal SMD connector on "SW" and "LED In" footprints.
 * 1X 3P SH1.0 horizontal SMD connector on "LED Out" footprint, only needed when using WS2812B RGB LED daughter board.
 * To connect LEDs:
-  * "LED In" connector (+, -) is for regular single color LED signal from your existing main board.
+  * "LED In" connector (+, -) is for regular single color LED signal from your existing `Main Board`.
   * "LED In" and "LED Out" connectors are for daisy-chain when using WS2812B RGB LED daughter board.
 
 ### Mechanical Switch
@@ -105,7 +106,7 @@ Let's hope this happens someday.
 * Short the corresponding jumper (sw1 or sw2) to enable the switch.
 * You can solder the other switch, but it's only for the feel, so don't short the jumper.
 
-* To connect to controller's main board:
+* To connect to controller's `Main Board`:
   * "SW" connector (Out, GND) is for the switch signal;
 
 * This example shows SW1 as the trigger switch, and optional Choc V1 on SW2 is just for the feel.  
@@ -121,7 +122,7 @@ Let's hope this happens someday.
 * You can solder a mechanical switch on SW1 footprint for some tactile feel, but don't short the jumper sw1.
 * On some systems, one LED line is a constant 5V or 3.3V power supply, you can borrow that to power the optical sensor - just short the jumper "LEDP-V".
 
-* To connect to controller's main board:
+* To connect to controller's `Main Board`:
   * "SW" connector (V, Out, GND) is for the switch signal;
 
 * This example shows a low-active configuration, 5V is borrowed from LED positive line, and optional Choc V1 on SW1 just for the feel.  
@@ -135,10 +136,10 @@ Let's hope this happens someday.
 * This example uses Hall effect switch on SW2 and optional Choc V1 on SW1 just for the feel.  
   <img src="doc/he_pcb1.png" width="43%"/> <img src="doc/he_pcb2.png" width="37%"/>
 
-* To connect to controller's main board:
-* "SW" connector (V, Out, G) connects to the **Arcade Pico IO** board. Then the IO board connects to the main board.
+* To connect to controller's `Main Board`:
+* "SW" connector (V, Out, G) connects to the **Arcade Pico IO** board. Then the `IO Board` connects to the `Main Board`.
 
-* Note that Arcade Pico IO board is need for this setup.
+* Note that Arcade Pico `IO Board` is need for this setup.
 
 ## The LED Daughter Board
 * It is separated from the **Arcade Pico Button** board by snapping or cutting. There're two versions: single-color LED and WS2812B RGB LED. You can choose either one according to your needs.
@@ -157,14 +158,14 @@ Let's hope this happens someday.
   <img src="doc/led_pcb4.png" width="30%"/>
 
 ### WS2812B RGB LED Board
-* **Arcade Pico IO board is required.**
+* **Arcade Pico `IO Board` is required.**
 * Use WS2812B 4020 side emitting RGB LEDs. You can use two of them, one for each side, to get better light distribution.
 * 0.1uF 0805 or 0603 capacitor on C2 footprint is highly recommended.
 * Here's how it looks after soldered.  
   <img src="doc/rgb_pcb1.png" width="34%"/> <img src="doc/rgb_pcb2.png" width="36%"/> <img src="doc/rgb_pcb3.png" width="12%"/>
 
-## The IO Board
-* The IO board can convert the analog signals from Hall effect switches into digital signals for your main controller board. It can also bridge traditional LED bulb signals to WS2812B RGB LED data signals.
+## The `IO Board`
+* The `IO Board` can convert the analog signals from Hall effect switches into digital signals for your main controller board. It can also bridge traditional LED bulb signals to WS2812B RGB LED data signals.
 * If you don't need one or both of these functions, just skip the corresponding components.
 
 <img src="doc/io_pcb1.png" width="40%"/> <img src="doc/io_pcb2.png" width="41%"/>
@@ -181,7 +182,7 @@ Let's hope this happens someday.
 * 1x LM4040 shunt voltage reference in SOT23-3 (Z2), 2.0~2.1V (for 4.2V LDO) or 2.2~2.5V (for 4.5V LDO).
 * 1x 3.3V Zener diode, in SOD-123 or SOD-123F, such as BZT52H-C3V3 (Z1).
 * 3x 0.1uF 0603 capacitors (CC1, CC2, CC3).
-* 8x 3P SH1.0 horizontal SMD connectors (In1~In8), for connecting up to 8 Hall effect button boards.
+* 8x 3P SH1.0 horizontal SMD connectors (In1~In8), for connecting up to 8 Hall effect `Button Board`s.
 * 8x 2P JST XH2.54 or XH2.5 vertical connectors (Out1~Out8), for connecting to the main controller board.
 
 ### Components for RGB LED
@@ -189,7 +190,7 @@ Let's hope this happens someday.
 * 8x 1N4148 SOD-323 diodes (D1~D8), to protect from reverse voltage, only needed for 12V light input.
 * 2X PC847 or compatible quad optical isolators (U4, U5), in SOP-16.
 * 2x 0805 x 4 5.1K 8P4R resistor arrays (RN1, RN2), if they're not available, use 8x individual 5.1K 0603 resistors instead.
-* 2x 3P SH1.0 horizontal SMD connectors (LED Out and LED End), to connect to the button board equipped with WS2812B RGB LED daughter board.
+* 2x 3P SH1.0 horizontal SMD connectors (LED Out and LED End), to connect to the `Button Board` equipped with WS2812B RGB LED daughter board.
 * 8x 2P JST XH2.54 or XH2.5 vertical connectors (Lamp In 1~8), for connecting to the main controller board's LED signal.
 
 ## Notes on PCB and Electronics
@@ -198,7 +199,7 @@ Let's hope this happens someday.
   * R = (V_supply - V_F) / I
   * V_F for single color LED is usually around 3V, V_F for IR emitter is usually around 1.3V.
   * I for single color LED is usually 10-20mA, I for IR emitter is practically 1-10mA.
-* Here's how you calculate the pull-up or pull-down resistor for phototransistor (the one on the button board and the one inside the optical isolator):
+* Here's how you calculate the pull-up or pull-down resistor for phototransistor (the one on the `Button Board` and the one inside the optical isolator):
   * R >= V_supply / I_C
   * It's difficult to estimate the I_C (collector current) of the phototransistor, so just assume it's around 1mA.
   * So on a 3.3V power supply, R >= 3.3V / 1mA = 3.3K ohm, You can use a 3.3K or 3.9K ohm resistor.
