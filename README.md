@@ -8,8 +8,11 @@ It's the successor to my sanwa_opt project. With it, you can use regular low-pro
 ## Features
 * Compatible with both old Sanwa (push-click) and new Sanwa (twist-lock), Samducksa, and common Chinese buttons;
 * Supports mechanical switches, optical sensors, and magnetic switches (`IO Board` required);
+* Mechanical switch can be hotswap (Kailh Choc sockets);
 * Feel switch and actuation switch can be separated;
+* RGB LED support (`IO Board` required);
 * FDM 3D-printing friendly.
+* Multiple connection options to fit different systems.
 
 ## Thanks
 Thanks to many respectful guys/companies who made their tools or materials free or open source (KiCad, OnShape, InkScape, Raspberry things).
