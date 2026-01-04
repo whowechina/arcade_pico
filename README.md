@@ -92,7 +92,7 @@ This is a theoretical case that probably won't be implemented. If implemented, a
 Let's hope this happens someday.
 
 # How to Build
-## The `Button Board`
+## The Button Board
 ### Common Part
 * The PCB gerber file is `Production/PCB/"arcade_pico_button_*.zip`. The one with `socket` is hotswap (for Choc V1 and V2). I always use JLC (https://www.jlcpcb.com) and Jiepei (https://www.jiepei.com), feel free to use your preferred PCB manufacturer. They may ask if you need half-hole pads for the `Button Board`, just answer "No", it's costy and not necessary.
 * 2X 3P SH1.0 horizontal SMD connector on "SW" and "LED In" footprints.
@@ -104,7 +104,8 @@ Let's hope this happens someday.
 
 ### Mechanical Switch
 * Use either SW1 or SW2 footprint for Kailh Choc V1/V2 switches.
-* Use 1X Kailh Choc low-profile hotswap socket if you choose hotswap PCB version.
+* Use Kailh Choc low-profile hotswap socket if you choose hotswap PCB version.  
+  https://kailhswitch.net/products/kailh-mechnical-keyboard-switches-hot-swap-pcb-socket-diy-for-1350-choc-low-profile-keyboard-switches
 * Short the corresponding jumper (sw1 or sw2) to enable the switch.
 * You can solder the other switch, but it's only for the feel, so don't short the jumper.
 
