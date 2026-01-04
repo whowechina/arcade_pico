@@ -58,7 +58,8 @@ If you're interested in buying from me, or for commercial use, please contact me
 ### Terminology First
 * **`Button Board`** - The PCB that contains the switch and LED daughter board. It's the major part of the Arcade Pico project.
 * **`IO Board`** - The optional PCB that converts Hall effect switch signals to digital signals, and bridges regular LED signals to WS2812B RGB LED data signals. It's also part of the Arcade Pico project.
-* **`Main Board`** - The original controller board of your arcade system.
+* **`Main Board`** - The original controller board or IO board of your arcade system.
+* **`Lamp Holder`** - More accurately, it's a base equipped with both lamp and switch, but commonly referred to as lamp holder.
 
 ### Case: Replace the Lamp/Switch Holder without the `IO Board`
 It's the most common and easy case. The only thing you need to do is wiring the switch and LED signals from your `Main Board` to the corresponding connectors on the `Button Board`.
@@ -118,15 +119,15 @@ Let's hope this happens someday.
 * This example shows SW1 as the trigger switch, and optional Choc V1 on SW2 is just for the feel.  
   <img src="doc/choc_pcb1.png" width="38%"/> <img src="doc/choc_pcb2.png" width="40%"/>
 
-### Optical Sensor
+### Optical Sensor (IR Diode + Phototransistor)
 * Solder the IR diode (IR908-7C) and phototransistor (PT908-7C) at proper height;
 * Solder R3 (500 ohm for 3.3V supply, 1k ohm for 5V supply);
 * Resistors: R4, R5; Jumpers: c, e; Zener: Z1.
-  * Low-active logic (most systems are): R4 (0-10 ohm), R5 (2k ohm), short the jumper c by soldering.
-  * High-active logic: R4 (2k ohm), R5 (0-10 ohm), short the jumper e.
+  * Low-active logic (most systems are): R4 (0-10 ohm), R5 (2k ohm), short the jumper e by soldering.
+  * High-active logic: R4 (2k ohm), R5 (0-10 ohm), short the jumper c.
   * When power supply is 5V but the target system IO is 3.3V, solder Z1 (3.3V SOD-123F Zener diode) to protect the IO pin.
 * You can solder a mechanical switch on SW1 footprint for some tactile feel, but don't short the jumper sw1.
-* On some systems, one LED line is a constant 5V or 3.3V power supply, you can borrow that to power the optical sensor - just short the jumper "LEDP-V".
+* On most systems, LED positive line is a constant 5V or 3.3V power supply, you can borrow that to power the optical sensor - just short the jumper "LEDP-V".
 
 * To connect to controller's `Main Board`:
   * "SW" connector (V, Out, GND) is for the switch signal;
@@ -135,8 +136,9 @@ Let's hope this happens someday.
   <img src="doc/opt_pcb1.png" width="41%"/> <img src="doc/opt_pcb2.png" width="38%"/>
 
 ### Magnetic (Hall Effect) Switch
+* Magnetic switch is on SW1 footprint.
 * Solder U1 (SS49E SOT23-3) and C1 (0.1uF 0603).
-* You can solder a mechanical switch on SW2 footprint for some tactile feel, but don't solder the jumper sw2.
+* You can install a mechanical switch on SW2 footprint for some tactile feel, but don't solder the jumper.
 * If the Hall effect switch is not mounted tightly, you may need to use some RTV silicone adhesive to secure it.
 
 * This example uses Hall effect switch on SW2 and optional Choc V1 on SW1 just for the feel.  
@@ -160,7 +162,7 @@ Let's hope this happens someday.
 * They're normally rated for 20mA current. So typically you use 100-220 ohm current resistors (R1 and R2) for 5V supply, or 50-100 ohm for 3.3V supply.
 * Here's how it looks after soldered.  
   <img src="doc/led_pcb1.png" width="30%"/> <img src="doc/led_pcb2.png" width="36%"/> <img src="doc/led_pcb3.png" width="13%"/>
-* If the polarity of the LED footprint doesn't match your LED, just cut/break the trace right at the "x" mark at **both sides**, and short the jumpers accordingly. This will reverse the polarity.  
+* If the polarity of the LED footprint doesn't match your LED, just cut/break the copper trace right at the "x" mark at **both sides**, and short the jumpers accordingly. This will reverse the polarity.  
   <img src="doc/led_pcb4.png" width="30%"/>
 
 ### WS2812B RGB LED Board
