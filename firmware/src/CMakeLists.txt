@@ -1,7 +1,7 @@
 function(make_firmware board board_def)
     pico_sdk_init()
     add_executable(${board}
-        main.c light.c button.c hebtn.c save.c config.c commands.c cli.c
+        main.c light.c button.c hebtn.c output.c save.c config.c commands.c cli.c
         usb_descriptors.c)
     target_compile_definitions(${board} PUBLIC ${board_def}
                                PICO_XOSC_STARTUP_DELAY_MULTIPLIER=6)

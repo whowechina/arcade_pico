@@ -9,31 +9,31 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-typedef struct {
-    uint8_t rgb_hsv; // 0: RGB, 1: HSV
-    uint8_t val[3]; // RGB or HSV
-} rgb_hsv_t;
-
 typedef struct __attribute__((packed)) {
     struct {
-        uint16_t up[12];
-        uint16_t down[12];
+        uint16_t up[8];
+        uint16_t down[8];
     } calibrated;
     struct {
-        uint8_t on[12];
-        uint8_t off[12];
+        uint8_t on[8];
+        uint8_t off[8];
     } trigger;
     struct {
-        rgb_hsv_t color_on[12];
-        rgb_hsv_t color_off[12];
         uint8_t level;
         uint8_t not_used[15];
+        uint32_t color_on[8];
+        uint32_t color_off[8];
     } light;
+    struct {
+        uint8_t output[8];
+        uint8_t rgb[8];
+    } route;
 } arcade_cfg_t;
 
 typedef struct {
     struct {
         bool hall;
+        bool input;
     } debug;
 } arcade_runtime_t;
 

@@ -13,12 +13,20 @@ arcade_cfg_t *arcade_cfg;
 
 static arcade_cfg_t default_cfg = {
     .trigger = {
-        .on = { 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24 },
-        .off = { 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28 },
+        .on = { 24, 24, 24, 24, 24, 24, 24, 24 },
+        .off = { 28, 28, 28, 28, 28, 28, 28, 28 },
     },
     .light = {
         .level = 128,
+        .color_on = { 0xffffff, 0xffffff, 0xffffff, 0xffffff,
+                      0xffffff, 0xffffff, 0xffffff, 0xffffff },
+        .color_off = { 0x000000, 0x000000, 0x000000, 0x000000,
+                       0x000000, 0x000000, 0x000000, 0x000000 },
     },
+    .route = {
+        .output = { 0, 1, 2, 3, 4, 5, 6, 7 },
+        .rgb = { 0, 1, 2, 3, 4, 5, 6, 7 }
+    }
 };
 
 arcade_runtime_t arcade_runtime;

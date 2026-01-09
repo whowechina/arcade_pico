@@ -38,9 +38,27 @@ static void disp_hall()
     }
 }
 
+static void disp_route()
+{
+    printf("[Route]\n");
+    printf("  Hall In |  1  2  3  4  5  6  7  8\n");
+    printf("  --> Out |");
+    for (int i = 0; i < count_of(arcade_cfg->route.output); i++) {
+        printf("%3d", (arcade_cfg->route.output[i] % 8) + 1);
+    }
+    printf("\n  --------\n");
+
+    printf("  Lamp In |  1  2  3  4  5  6  7  8\n");
+    printf("  --> RGB |");
+    for (int i = 0; i < count_of(arcade_cfg->route.rgb); i++) {
+        printf("%3d", (arcade_cfg->route.rgb[i] % 8) + 1);
+    }
+    printf("\n");
+}
+
 void handle_display(int argc, char *argv[])
 {
-    const char *usage = "Usage: display [light|he]\n";
+    const char *usage = "Usage: display [light|he|route]\n";
     if (argc > 1) {
         printf(usage);
         return;
@@ -49,16 +67,20 @@ void handle_display(int argc, char *argv[])
     if (argc == 0) {
         disp_light();
         disp_hall();
+        disp_route();
         return;
     }
 
-    const char *choices[] = {"light", "he" };
+    const char *choices[] = {"light", "he", "route"};
     switch (cli_match_prefix(choices, count_of(choices), argv[0])) {
         case 0:
             disp_light();
             break;
         case 1:
             disp_hall();
+            break;
+        case 2:
+            disp_route();
             break;
         default:
             printf(usage);
@@ -123,18 +145,55 @@ static void handle_trigger(int argc, char *argv[])
     disp_hall();
 }
 
+static void handle_route(int argc, char *argv[])
+{
+    const char *usage = "Usage: route <output|rgb> <KEY> <VALUE>\n"
+                        "  KEY: 1..8\n"
+                        " VALUE: 1..8\n";
+    if (argc != 3) {
+        printf(usage);
+        return;
+    }
+
+    const char *choices[] = {"output", "rgb"};
+    int field = cli_match_prefix(choices, count_of(choices), argv[0]);
+    if (field < 0) {
+        printf(usage);
+        return;
+    }
+
+    int key = cli_extract_non_neg_int(argv[1], 0) - 1;
+    int value = cli_extract_non_neg_int(argv[2], 0) - 1;
+    if ((key < 0) || (key >= 8) || (value < 0) || (value >= 8)) {
+        printf(usage);
+        return;
+    }
+
+    if (field == 0) {
+        arcade_cfg->route.output[key] = value;
+    } else {
+        arcade_cfg->route.rgb[key] = value;
+    }
+
+    config_changed();
+    disp_route();
+}
+
 static void handle_debug(int argc, char *argv[])
 {
-    const char *usage = "Usage: debug hall\n";
+    const char *usage = "Usage: debug <hall|input>\n";
     if (argc != 1) {
         printf(usage);
         return;
     }
-    const char *choices[] = {"hall"};
+    const char *choices[] = {"hall", "input"};
     switch (cli_match_prefix(choices, count_of(choices), argv[0])) {
         case 0:
             arcade_runtime.debug.hall ^= true;
             hebtn_debug(arcade_runtime.debug.hall);
+            break;
+        case 1:
+            arcade_runtime.debug.input ^= true;
             break;
         default:
             printf(usage);
@@ -159,6 +218,7 @@ void commands_init()
     cli_register("level", handle_level, "Set LED brightness level.");
     cli_register("calibrate", handle_calibrate, "Calibrate the key sensors.");
     cli_register("trigger", handle_trigger, "Set Hall effect switch triggering.");
+    cli_register("route", handle_route, "Set output and rgb routing.");
     cli_register("debug", handle_debug, "Toggle debug features.");
     cli_register("save", handle_save, "Save config to flash.");
     cli_register("factory", handle_factory_reset, "Reset everything to default.");

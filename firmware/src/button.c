@@ -16,7 +16,7 @@
 #include "config.h"
 #include "board_defs.h"
 
-static const uint8_t button_gpio[] = BUTTON_DEF;
+static const uint8_t button_gpio[] = BUTTON_GPIO;
 #define BUTTON_NUM (count_of(button_gpio))
 
 #ifdef BUTTON_PULL_UPDOWN

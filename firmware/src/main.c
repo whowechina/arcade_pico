@@ -31,6 +31,7 @@
 #include "light.h"
 #include "button.h"
 #include "hebtn.h"
+#include "output.h"
 
 static void run_lights()
 {
@@ -94,6 +95,31 @@ static void debug_display()
     last_display = now;
 }
 
+static void bridge_ctrl()
+{
+    for (int i = 0; i < output_num(); i++) {
+        bool active = hebtn_actuated(i);
+        int route = arcade_cfg->route.output[i] % 8;
+        output_set(route, !active);
+    }
+
+    uint16_t light_input = button_read();
+    static uint16_t last_light_input = 0;
+    if (light_input != last_light_input) {
+        if (arcade_runtime.debug.input) {
+            printf("Input: 0x%04x\n", light_input);
+        }
+        last_light_input = light_input;
+    }
+
+    for (int i = 0; i < button_num(); i++) {
+        bool active = (light_input & (1 << i)) != 0;
+        uint32_t color = active ? arcade_cfg->light.color_on[i] : arcade_cfg->light.color_off[i];
+        int route = arcade_cfg->route.rgb[i] % 8;
+        light_set(route, color, true);
+    }
+}
+
 static void core0_loop()
 {
     uint64_t next_frame = 0;
@@ -109,6 +135,7 @@ static void core0_loop()
         hebtn_update();
 
         hid_update();
+        bridge_ctrl();
 
         debug_display();
         sleep_until(next_frame);
@@ -139,6 +166,7 @@ void init()
     button_init();
     hebtn_init(arcade_cfg->calibrated.up, arcade_cfg->calibrated.down,
                arcade_cfg->trigger.on, arcade_cfg->trigger.off);
+    output_init();
 
     cli_init("arcade_pico>", "\n   << Arcade Pico Controller >>\n"
                             " https://github.com/whowechina\n\n");

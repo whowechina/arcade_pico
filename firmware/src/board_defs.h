@@ -1,5 +1,5 @@
 /*
- * Voltex Controller Board Definitions
+ * Arcade Pico Board Definitions
  * WHowe <github.com/whowechina>
  */
 
@@ -9,9 +9,11 @@
 
 #define RGB_ORDER GRB // or RGB
 
-#define BUTTON_DEF { 18, 16, 12, 10, 11, 13, 17, 19  }
+#define BUTTON_GPIO { 18, 16, 12, 10, 11, 13, 17, 19  }
 #define BUTTON_PULL_UPDOWN { 1, 1, 1, 1, 1, 1, 1, 1 }
 
+#define OUTPUT_GPIO { 2, 3, 4, 5, 6, 7, 8, 9 }
+#define OUTPUT_DEFAULT { 1, 1, 1, 1, 1, 1, 1, 1 }
 
 #define HALL_KEY_MUX_ADDRS { 20, 21, 22 }
 #define HALL_KEY_MUX_MAP { 3, 2, 1, 0, 7, 6, 5, 4 }
