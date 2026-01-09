@@ -56,9 +56,9 @@ If you're interested in buying from me, or for commercial use, please contact me
 
 ## Use Cases
 ### Terminology First
-* **`Button Board`** - The PCB that contains the switch and LED daughter board. It's the major part of the Arcade Pico project.
-* **`IO Board`** - The optional PCB that converts Hall effect switch signals to digital signals, and bridges regular LED signals to WS2812B RGB LED data signals. It's also part of the Arcade Pico project.
 * **`Main Board`** - The original controller board or IO board of your arcade system.
+* **`Button Board`** - The PCB that contains the switch and LED daughter board. It's the major part of the Arcade Pico project.
+* **`IO Board`** - The optional PCB that converts Hall effect switch signals to digital signals, and bridges regular LED signals to WS2812B RGB LED data signals. It's also part of the Arcade Pico project. It cannot replace your original `Main Board`.
 * **`Lamp Holder`** - More accurately, it's a base equipped with both lamp and switch, but commonly referred to as lamp holder.
 
 ### Case: Replace the Lamp/Switch Holder without the `IO Board`
