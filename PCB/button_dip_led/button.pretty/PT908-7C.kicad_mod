@@ -1,0 +1,147 @@
+(footprint "PT908-7C"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -1.17 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "d68dc2d7-1f20-4b19-98db-7ec2e855a441")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "PT908-7C"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "10a4cec4-3a9d-4f4c-a5a8-22506c2d81b8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "60b86b9e-db27-4c9a-b6e5-db61e4b17784")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8e47700b-ae99-4d63-b863-cbcc4ffb4cca")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -0.5 0.9)
+		(end -0.5 0.63)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "110fa34f-fd49-48cd-8d36-0821db3c7eb6")
+	)
+	(fp_line
+		(start -0.5 0.9)
+		(end -0.23 0.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "6eccbe2c-09fc-4212-8daa-fa0ee2d3c19a")
+	)
+	(fp_line
+		(start -0.5 0.9)
+		(end 0 0.4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "a1bda35b-855d-4cf1-926a-65843e58bc80")
+	)
+	(fp_line
+		(start -0.25 0.4)
+		(end 0.25 0.4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "67ebec2c-b169-4699-bf9f-e7ebc7e09102")
+	)
+	(fp_line
+		(start 0 0.4)
+		(end 0.5 0.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "d64249b8-42a4-4f8e-820d-d3fc5e23e2d5")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "7233e11f-1afc-472b-b8c0-586bcfcf576d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole oval
+		(at -1.27 0)
+		(size 1.905 1.1)
+		(drill 0.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "f3d64179-bc58-4fc1-8b3c-53f93fcb7919")
+	)
+	(pad "2" thru_hole oval
+		(at 1.27 0)
+		(size 1.905 1.1)
+		(drill 0.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "172f384e-963b-4255-ae1f-29766a262262")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/3dmodels/PT908-7C.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
