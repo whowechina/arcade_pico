@@ -357,7 +357,7 @@
 		(uuid "a281905b-5f88-47d3-9191-fc55525bb180")
 	)
 	(pad "" np_thru_hole circle
-		(at 5 -4.7)
+		(at 5 -3.8)
 		(size 3 3)
 		(drill 3)
 		(layers "*.Mask")
@@ -389,7 +389,7 @@
 		(uuid "ebb80ac5-bd0f-42d9-9a11-ee35072a6adb")
 	)
 	(pad "2" smd roundrect
-		(at 8.2 -4.7)
+		(at 8.2 -3.8)
 		(size 2.8 2.2)
 		(layers "B.Cu" "B.Mask" "B.Paste")
 		(roundrect_rratio 0.08333333333)
